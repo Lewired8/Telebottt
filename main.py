@@ -11,7 +11,7 @@ from telethon.sessions import StringSession
 from telethon.tl.types import User, Message
 from telethon.tl.functions.channels import DeleteMessagesRequest
 from telethon.tl.functions.messages import DeleteMessagesRequest as DeletePrivateMessagesRequest
-import openai  # changed from AsyncOpenAI
+from openai import AsyncOpenAI # changed from AsyncOpenAI
 
 # Configuration - using environment variables for security
 API_ID = int(os.getenv('API_ID', '33178242'))
