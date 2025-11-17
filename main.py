@@ -11,13 +11,13 @@ from telethon.sessions import StringSession
 from telethon.tl.types import User, Message
 from telethon.tl.functions.channels import DeleteMessagesRequest
 from telethon.tl.functions.messages import DeleteMessagesRequest as DeletePrivateMessagesRequest
-from openai import AsyncOpenAI
+import openai  # changed from AsyncOpenAI
 
 # Configuration - using environment variables for security
-API_ID = os.getenv('33178242')
-API_HASH = os.getenv('43e0c37f878e088512d3ba6b1f771640')
-PHONE_NUMBER = os.getenv('+84 90 670 10 75')
-SESSION_STRING = os.getenv('1BZWaqwUAULiQVwAg-HeFSzWyZSi8alctkDkTu8gYM3dnLiH5ilUDH1kWahob0i5hP95Wyzoa6TVsfYtfxVDIHxA3FpZtrZP43cM3mF4k6NHOq7mceb24fMZ3zwP97YM_ECkiieBONvr341XEXx_VMzqZBwuy3GI9LwnNXMIjZ5eE-Lrl7W-ued-CTGFxhZsAu4wLP1hqFH3ru1P4v5_uiJtFiAtVA3KAz1h3G4eHn0JGFa19ddeurgs2-0K0TlVs52ShzIfqgA09jCHu2J8PSDxaLxHdZGwYu6whsjey6dYuUM9gwmqHsraDzRVfX6EDN4cUfYYMWWcJnY995UJefvwt49_ICsQ=')
+API_ID = int(os.getenv('API_ID', '33178242'))
+API_HASH = os.getenv('API_HASH', '43e0c37f878e088512d3ba6b1f771640')
+PHONE_NUMBER = os.getenv('PHONE_NUMBER', '+84906701075')
+SESSION_STRING = os.getenv('SESSION_STRING', '1BZWaqwUAULiQVwAg-HeFSzWyZSi8alctkDkTu8gYM3dnLiH5ilUDH1kWahob0i5hP95Wyzoa6TVsfYtfxVDIHxA3FpZtrZP43cM3mF4k6NHOq7mceb24fMZ3zwP97YM_ECkiieBONvr341XEXx_VMzqZBwuy3GI9LwnNXMIjZ5eE-Lrl7W-ued-CTGFxhZsAu4wLP1hqFH3ru1P4v5_uiJtFiAtVA3KAz1h3G4eHn0JGFa19ddeurgs2-0K0TlVs52ShzIfqgA09jCHu2J8PSDxaLxHdZGwYu6whsjey6dYuUM9gwmqHsraDzRVfX6EDN4cUfYYMWWcJnY995UJefvwt49_ICsQ=')
 OPENAI_API_KEY = os.getenv('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')
 
 # Authorized admins - ONLY these users can use commands (فتح كسمك، كتم، ارفع، إلغاء)
